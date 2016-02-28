@@ -1,0 +1,1 @@
+"C:\AzureFY15TK\12 Service Bus (CQRS)\ServiceBusExplorer\ServiceBusExplorer.exe" /c "Endpoint=sb://dpeplfy13.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=AAAAA"

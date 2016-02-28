@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pltkw32016ServiceBusClient", "pltkw32016ServiceBusClient\pltkw32016ServiceBusClient.csproj", "{3F9B295F-B660-45BE-AC40-314BE88FB1A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleServiceBusClient", "ConsoleServiceBusClient\ConsoleServiceBusClient.csproj", "{3DD05F56-5BAB-4D1A-8893-867EE0F532CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Setup", "Setup\Setup.csproj", "{0762C319-B119-45AF-9274-C7E0A6343950}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F9B295F-B660-45BE-AC40-314BE88FB1A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9B295F-B660-45BE-AC40-314BE88FB1A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9B295F-B660-45BE-AC40-314BE88FB1A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9B295F-B660-45BE-AC40-314BE88FB1A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD05F56-5BAB-4D1A-8893-867EE0F532CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD05F56-5BAB-4D1A-8893-867EE0F532CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD05F56-5BAB-4D1A-8893-867EE0F532CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD05F56-5BAB-4D1A-8893-867EE0F532CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0762C319-B119-45AF-9274-C7E0A6343950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0762C319-B119-45AF-9274-C7E0A6343950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0762C319-B119-45AF-9274-C7E0A6343950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0762C319-B119-45AF-9274-C7E0A6343950}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tkopaczms.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ConsoleServiceBusClient\\ConsoleServiceBusClient.csproj
+		SccProjectName1 = ConsoleServiceBusClient
+		SccLocalPath1 = ConsoleServiceBusClient
+		SccProjectUniqueName2 = pltkw32016ServiceBusClient\\pltkw32016ServiceBusClient.csproj
+		SccProjectName2 = pltkw32016ServiceBusClient
+		SccLocalPath2 = pltkw32016ServiceBusClient
+		SccProjectUniqueName3 = Setup\\Setup.csproj
+		SccProjectName3 = Setup
+		SccLocalPath3 = Setup
+	EndGlobalSection
+EndGlobal
