@@ -38,8 +38,9 @@ namespace ConsoleServiceBusClient
                 var msg = await m_clientLog.ReceiveAsync();
                 if (msg!=null)
                 {
+                    Console.WriteLine($"LOG: {msg.MessageId}");
                     Param p = msg.GetBody<Param>();
-                    Console.WriteLine($"log {DateTime.Now.Ticks}: {p.A}, {p.B}");
+                    Console.WriteLine($"LOG: {msg.MessageId}, {DateTime.Now.Ticks}: {p.A}, {p.B}");
                     await m_clientLog.CompleteAsync(msg.LockToken);
                 }
             }
@@ -52,8 +53,9 @@ namespace ConsoleServiceBusClient
                 var msg = await m_clientAdd.ReceiveAsync();
                 if (msg != null)
                 {
+                    Console.WriteLine($"ADD: {msg.MessageId}");
                     Param p = msg.GetBody<Param>();
-                    Console.WriteLine($"add {DateTime.Now.Ticks}: {p.A}, {p.B}");
+                    Console.WriteLine($"ADD: {msg.MessageId}, {DateTime.Now.Ticks}: {p.A}, {p.B}");
                     BrokeredMessage msgResp = new BrokeredMessage(p.A + p.B);
                     msgResp.SessionId = msg.ReplyToSessionId;
                     await m_queue.SendAsync(msgResp);
@@ -69,12 +71,20 @@ namespace ConsoleServiceBusClient
                 var msg = await m_clientSub.ReceiveAsync();
                 if (msg != null)
                 {
-                    Param p = msg.GetBody<Param>();
-                    Console.WriteLine($"sub {DateTime.Now.Ticks}: {p.A}, {p.B}");
-                    BrokeredMessage msgResp = new BrokeredMessage(p.A - p.B);
-                    msgResp.SessionId = msg.ReplyToSessionId;
-                    await m_queue.SendAsync(msgResp);
-                    await m_clientSub.CompleteAsync(msg.LockToken);
+                    Console.WriteLine($"SUB: {msg.MessageId}");
+                    if (msg.DeliveryCount > 1)
+                    {
+                        Param p = msg.GetBody<Param>();
+                        Console.WriteLine($"SUB: {msg.MessageId}, {DateTime.Now.Ticks}: {p.A}, {p.B}");
+                        BrokeredMessage msgResp = new BrokeredMessage(p.A - p.B);
+                        msgResp.SessionId = msg.ReplyToSessionId;
+                        await m_queue.SendAsync(msgResp);
+                        await m_clientSub.CompleteAsync(msg.LockToken);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"SUB: {msg.MessageId}, Exception, bad processing - {msg.DeliveryCount}");
+                    }
                 }
             }
 

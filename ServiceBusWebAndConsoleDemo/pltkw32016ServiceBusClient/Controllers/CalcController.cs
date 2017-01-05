@@ -49,9 +49,14 @@ namespace pltkw32016ServiceBusClient.Controllers
             msg.Properties.Add("operation", 2);
             msg.ReplyToSessionId = Guid.NewGuid().ToString("N");
             await m_tc.SendAsync(msg);
-            MessageSession session = m_qc.AcceptMessageSession(msg.ReplyToSessionId, TimeSpan.FromSeconds(60));
-            msg = await session.ReceiveAsync();
-            if (msg != null) result = msg.GetBody<int>();
+            string session = msg.ReplyToSessionId;
+            msg = null;
+            while (msg == null)
+            {
+                MessageSession msgsession = m_qc.AcceptMessageSession(session, TimeSpan.FromSeconds(360));
+                msg = await msgsession.ReceiveAsync();
+                if (msg != null) result = msg.GetBody<int>();
+            }
             return View(result);
         }
     }
